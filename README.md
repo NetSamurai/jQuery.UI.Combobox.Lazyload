@@ -3,7 +3,7 @@
 This is an easy to implement tiny jQuery UI Widget that spawns a combobox that allows a user to search, select, from a select list, and lazyloads ajax calls against a query!
 
 # Example Code
-<a href="https://github.com/ravenmyst/jQuery.UI.Combobox.Lazyload/blob/master/example/data.php" target="_blank">Click Here</a>
+<a href="https://github.com/notsigma/jQuery.UI.Combobox.Lazyload/tree/master/example" target="_blank">Click Here</a>
 
 # Implementation
 
