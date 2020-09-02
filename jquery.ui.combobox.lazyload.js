@@ -120,10 +120,15 @@ jQueryAutocompleteCombobox.create = function ( source_path_string, source_method
                 });
 
             input.data( "uiAutocomplete" )._renderItem = function( ul, item ) {
-                var label = item.LABEL.toString().replace( new RegExp(
-                	"(?![^&;]+;)(?!<[^<>]*)(" + $.ui.autocomplete.escapeRegex( jQueryAutocompleteCombobox.previousSearchValue ) + 
-                    ")(?![^<>]*>)(?![^&;]+;)", "gi"), "<strong>$1</strong>" );
-
+                var label = "";
+                if( jQueryAutocompleteCombobox.previousSearchValue === "" ) {
+                    label = item.LABEL.toString();
+                } else {
+                    label = item.LABEL.toString().replace( new RegExp(
+                        "(?![^&;]+;)(?!<[^<>]*)(" + $.ui.autocomplete.escapeRegex( jQueryAutocompleteCombobox.previousSearchValue ) + 
+                        ")(?![^<>]*>)(?![^&;]+;)", "gi"), "<strong>$1</strong>" );
+                }
+                
                 return $( "<li></li>" )
                     .data( "uiAutocompleteItem", item )
                     .append( "<a>" + label + "</a>" )
