@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
+        <script
+        src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
+        <script src="jquery.ui.combobox.lazyload.min.js"></script>
+
+        <style>
+            .ui-autocomplete {max-height: 400px;overflow-y: auto;overflow-x: hidden;z-index:1000 !important;}
+            .ui-button { margin-left: -1px; }
+            .ui-button-icon-only .ui-button-text { padding: 0.1em; } 
+            .ui-menu .ui-menu-item { margin-top: 6px; }
+            .ui-autocomplete-input { margin: 0; padding: 0.27em 0 0.5em 0.4em; }
+            .ui-autocomplete-input {overflow-y: hidden; overflow-x: hidden; width:500px;} 
+        </style>
+    </head>
+
+    <body>
+        <form action='./' id='searchForm' method='post'>
+            <input type='hidden' name='item_id' id='item_id'>
+            City Selector: 
+            <select id='items' name='items' size='25'>
+                <option selected='selected'>Placeholder</option>
+            </select>
+        </form>
+
+        <script>
+            $( document ).ready(function() {
+                initializeComboBox('data.json', 'getTestItems', 'item_id', 'Select or type a City Name..');
+                $( "#items" ).combobox();
+            });
+        </script>
+    </body>
+</html>
